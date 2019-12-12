@@ -1,0 +1,26 @@
+﻿<Page x:Class="InternetBanking.Login"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:InternetBanking"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Login" Background="AliceBlue">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="380*"/>
+            <ColumnDefinition Width="143*"/>
+            <ColumnDefinition Width="380*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1">
+            <Label Content="Введите логин" HorizontalAlignment="Center" Margin="0,145,0,0" VerticalAlignment="Top" Width="107"/>
+            <Label Content="Введите пароль" HorizontalAlignment="Center" VerticalAlignment="Center" Width="108"/>
+            <TextBox Name="textBox_Login" HorizontalAlignment="Center" Margin="0,176,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <PasswordBox Name="passwordBox_Password" HorizontalAlignment="Center" Margin="0,243,0,0" VerticalAlignment="Top" Width="120"/>
+            <Button Name="signIn" Content="Войти" HorizontalAlignment="Center" Margin="0,286,0,0" VerticalAlignment="Top" Width="85" Click="LogIn_Click"/>
+            <Button Name="signUp" Content="Регистрация" HorizontalAlignment="Center" Margin="0,333,0,0" VerticalAlignment="Top" Width="85" Click="registration_Click"/>
+        </Grid>
+    </Grid>
+</Page>
