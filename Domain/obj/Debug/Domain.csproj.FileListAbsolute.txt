@@ -3,3 +3,8 @@ C:\Users\МакишевЕ\source\repos\InternetBanking\Domain\bin\Debug\Domain.p
 C:\Users\МакишевЕ\source\repos\InternetBanking\Domain\obj\Debug\Domain.csprojAssemblyReference.cache
 C:\Users\МакишевЕ\source\repos\InternetBanking\Domain\obj\Debug\Domain.dll
 C:\Users\МакишевЕ\source\repos\InternetBanking\Domain\obj\Debug\Domain.pdb
+C:\Users\home\Source\Repos\CW12.12.19\Domain\bin\Debug\Domain.dll
+C:\Users\home\Source\Repos\CW12.12.19\Domain\bin\Debug\Domain.pdb
+C:\Users\home\Source\Repos\CW12.12.19\Domain\obj\Debug\Domain.csprojAssemblyReference.cache
+C:\Users\home\Source\Repos\CW12.12.19\Domain\obj\Debug\Domain.dll
+C:\Users\home\Source\Repos\CW12.12.19\Domain\obj\Debug\Domain.pdb

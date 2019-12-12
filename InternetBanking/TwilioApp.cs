@@ -11,10 +11,14 @@ namespace InternetBanking
     public class TwilioApp
     {
         public ActionWindow ActionWindow { get; set; }
-        public void SendeReport(string phoneNumber, string report)
+        public TwilioApp(string phoneNumber, string message)
         {
-            string AccountSid = "AC8342d8d4276f3b549f9f2ca00a2c0d0a";
-            string AuthToken = "1b0da09f5ad619addd9a972e0f9cede3";
+            SendReport(phoneNumber, message);
+        }
+        public void SendReport(string phoneNumber, string report)
+        {
+            string AccountSid = "AC67fcdfdc3ed144c763b1324cca3a2ab0";
+            string AuthToken = "6fa17b35f0e6116e9351e5ff456be624";
             string Message = string.Empty;
             string VerificationCode = string.Empty;
 
@@ -22,7 +26,7 @@ namespace InternetBanking
             TwilioClient.Init(AccountSid, AuthToken);
 
             var to = new Twilio.Types.PhoneNumber(phoneNumber);
-            var from = new Twilio.Types.PhoneNumber("+14842355664");
+            var from = new Twilio.Types.PhoneNumber("+14243757512");
             var message = MessageResource.Create(
                 to: to,
                 from: from,

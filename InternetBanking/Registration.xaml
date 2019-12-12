@@ -15,16 +15,20 @@
             <ColumnDefinition Width="380*"/>
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1">
-            <Label Content="Введите логин" HorizontalAlignment="Center" Margin="0,78,0,0" VerticalAlignment="Top" Width="107"/>
-            <Label Content="Введите пароль" HorizontalAlignment="Center" VerticalAlignment="Top" Width="108" Margin="0,150,0,0"/>
-            <TextBox Name="textBox_Login_reg" HorizontalAlignment="Center" Margin="0,109,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-            <PasswordBox Name="passwordBox_Password_reg" HorizontalAlignment="Center" Margin="0,181,0,0" VerticalAlignment="Top" Width="120"/>
-            <Button Name="signUp" Content="Регистрация" HorizontalAlignment="Center" Margin="21,364,21,0" VerticalAlignment="Top" Width="85" Click="registration_Click"/>
-            <Label Content="Повторите пароль" HorizontalAlignment="Center" VerticalAlignment="Top" Width="120" Margin="0,220,0,0"/>
-            <PasswordBox x:Name="passwordBox_Password_Copy" HorizontalAlignment="Center" Margin="0,251,0,0" VerticalAlignment="Top" Width="120"/>
-            <Button Name="cancel_reg" Content="Отмена" HorizontalAlignment="Center" Margin="21,402,21,0" VerticalAlignment="Top" Width="85" Click="cancel_reg_Click"/>
-            <Label Content="Ваш номер телефона" HorizontalAlignment="Center" VerticalAlignment="Top" Width="120" Margin="4,293,3,0"/>
-            <TextBox x:Name="textBox_phone" HorizontalAlignment="Center" Margin="4,324,3,0" VerticalAlignment="Top" Width="120"/>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="140*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Label Content="Введите логин" HorizontalAlignment="Center" Margin="10,42,6.864,0" VerticalAlignment="Top" Width="107"/>
+            <Label Content="Введите пароль" HorizontalAlignment="Center" VerticalAlignment="Top" Width="108" Margin="9,114,6.864,0"/>
+            <TextBox Name="textBox_Login_reg" HorizontalAlignment="Center" Margin="3,72,0.864,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <PasswordBox Name="passwordBox_Password_reg" HorizontalAlignment="Center" Margin="3,145,0.864,0" VerticalAlignment="Top" Width="120"/>
+            <Button Name="signUp" Content="Регистрация" HorizontalAlignment="Center" Margin="11,347,9.6,0" VerticalAlignment="Top" Width="105" Click="registration_Click" FontSize="10" Height="22"/>
+            <Label Content="Повторите пароль" HorizontalAlignment="Center" VerticalAlignment="Top" Width="120" Margin="3,193,0.864,0"/>
+            <PasswordBox x:Name="passwordBox_Password_Copy" HorizontalAlignment="Center" Margin="3,224,0.864,0" VerticalAlignment="Top" Width="120"/>
+            <Button Name="cancel_reg" Content="Отмена" HorizontalAlignment="Center" Margin="11,389,9.6,0" VerticalAlignment="Top" Width="105" Click="cancel_reg_Click" FontSize="10" Height="21"/>
+            <Label Content="Ваш номер телефона" HorizontalAlignment="Center" VerticalAlignment="Top" Width="120" Margin="4,274,2.4,0" Grid.ColumnSpan="2" FontSize="11"/>
+            <TextBox x:Name="textBox_phone" HorizontalAlignment="Center" Margin="3,300,0.864,0" VerticalAlignment="Top" Width="120"/>
 
         </Grid>
     </Grid>

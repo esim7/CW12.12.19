@@ -21,11 +21,7 @@ namespace InternetBanking
     /// </summary>
     public partial class ActionWindow : Page
     {
-        public delegate void SmsReport(string message);
-        public event SmsReport Notification;
-
-        public string PhoneNumber { get; set; }
-        public string Report { get; set; }
+        public Func <string, string, bool> ReportSender;
 
         public TwilioApp TwilioApp { get; set; }
         public Client CurrentClient { get; set; }
@@ -34,10 +30,8 @@ namespace InternetBanking
         {
             InitializeComponent();
             CurrentClient = new Client();
-            TwilioApp = new TwilioApp();
             Window = window;
-            Notification += ShowMessage;
-            PhoneNumber = CurrentClient.PhoneNumber;
+            ReportSender = new Func<string, string, bool>(ShowMessage);
         }
 
         private void Withdrow_button(object sender, RoutedEventArgs e)
@@ -45,24 +39,39 @@ namespace InternetBanking
             if (CurrentClient.Cash > 0 && CurrentClient.Cash > int.Parse(textBox_actionSum.Text))
             {
                 CurrentClient.Cash -= int.Parse(textBox_actionSum.Text);
-                Notification?.Invoke($"C вашего счета было снято {int.Parse(textBox_actionSum.Text)} остаток {CurrentClient.Cash}");
+                string report = $"C вашего счета было снято {int.Parse(textBox_actionSum.Text)} остаток {CurrentClient.Cash}";
+                ReportSender.BeginInvoke(CurrentClient.PhoneNumber, report, Result, null);
             }
             else
             {
                 MessageBox.Show("Недостаточно средст на счету");
-
             }
         }
 
-        private void add_button(object sender, RoutedEventArgs e)
+        private void Add_button(object sender, RoutedEventArgs e)
         {
             CurrentClient.Cash += int.Parse(textBox_actionSum.Text);
-            Notification?.Invoke($"Ваш счет был пополнен на  {int.Parse(textBox_actionSum.Text)} баланс {CurrentClient.Cash}");
+            string report = $"Ваш счет был пополнен на  {int.Parse(textBox_actionSum.Text)} баланс {CurrentClient.Cash}";
+            ReportSender.BeginInvoke(CurrentClient.PhoneNumber, report, Result, null);
         }
 
-        private void ShowMessage(string message)
+        private void Result(IAsyncResult result)
         {
-            TwilioApp.SendeReport(CurrentClient.PhoneNumber, message);
+            var processResult = ReportSender.EndInvoke(result);
+            if (processResult == true)
+            {
+                MessageBox.Show("Транзакция проведена успешно");
+            }
+            else
+            {
+                MessageBox.Show("Ошибка в проведении транзакции");
+            }
+        }
+
+        private bool ShowMessage(string phoneNumber, string message)
+        {
+            var TwilioApp = new TwilioApp(phoneNumber, message);
+            return true; 
         }
     }
 }
